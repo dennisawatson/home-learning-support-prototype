@@ -1,15 +1,111 @@
+{% from "components/input/macro.njk" import govukInput %}
+{% from "components/fieldset/macro.njk" import govukFieldset %}
+{% from "components/textarea/macro.njk" import govukTextarea %}
+{% from "components/select/macro.njk" import govukSelect %}
+{% from "components/button/macro.njk" import govukButton %}
 {% extends "common/templates/layout.njk" %}
 
-{% block pageTitle %}
-  {{ message }}
-{% endblock %}
-
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">
-      {{ message }}
-    </h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    <form class="form" id="entryForm" method="post" autocomplete="off" novalidate="novalidate">
+      {% call govukFieldset({
+        legend: {
+          text: "Ask for help...",
+          classes: "govuk-fieldset__legend--xl",
+          isPageHeading: true
+        }
+      }) %}
+
+        <p class="govuk-body-l">Stuck on your biology or geography homework? Got a question and need help right now? Our team of experts are here to help.</p>
+
+        <p class="govuk-body">Type in your question below, then submit the form and a tutor will be with you shortly.</p>
+
+        {{ govukInput({
+          label: {
+            html: 'First name'
+          },
+          classes: "govuk-input--width-20",
+          id: "given-name",
+          name: "given-name",
+          autocomplete: "given-name",
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+
+        {{ govukSelect({
+          label: {
+            text: "Year group"
+          },
+          classes: "govuk-select--width-10",
+          id: "year_group",
+          name: "year_group",
+          items: [
+            {
+              value: "7",
+              text: "Year 7"
+            },
+            {
+              value: "8",
+              text: "Year 8"
+            },
+            {
+              value: "9",
+              text: "Year 9"
+            },
+            {
+              value: "10",
+              text: "Year 10"
+            },
+            {
+              value: "11",
+              text: "Year 11"
+            }
+          ]
+        }) }}
+
+        {{ govukSelect({
+          label: {
+            text: "Subject"
+          },
+          id: "subject",
+          name: "subject",
+          classes: "govuk-select--width-10",
+          items: [
+            {
+              value: "biology",
+              text: "Biology"
+            },
+            {
+              value: "geography",
+              text: "Geography"
+            }
+          ]
+        }) }}
+
+        {{ govukTextarea({
+          label: {
+            text: "Your question?"
+          },
+          id: "question",
+          name: "question",
+          rows: "10",
+          hint: {
+            text: "Do not include personal or financial information, like your National Insurance number or credit card details."
+          }
+        }) }}
+
+      {% endcall %}
+
+      <p class="govuk-body">By using this webchat service you agree to our <a href="/terms-and-conditions" target="_blank" class="govuk-link">terms and conditions</a></p>
+
+      <p class="govuk-body">You can read our <a href="/privacy-and-cookies" target="_blank" class="govuk-link">privacy policy</a></p>
+
+      {{ govukButton({
+        text: "Start chat",
+        isStartButton: true
+      }) }}
+    </form>
   </div>
-</div>
 {% endblock %}

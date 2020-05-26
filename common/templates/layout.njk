@@ -1,18 +1,40 @@
 {% from "components/footer/macro.njk" import govukFooter %}
+{% from "components/header/macro.njk" import govukHeader %}
+{% from "components/phase-banner/macro.njk" import govukPhaseBanner %}
 
 {% extends "template.njk" %}
 
-{% block pageTitle %}GDS Node.js boilerplate{% endblock %}
+{% set themeColor = '#207e77' %}
+{% set serviceName = 'Home learning support' %}
+
+{% block pageTitle %}{{ serviceName }}{% endblock %}
 
 {% block head %}
   {% include "common/templates/includes/head.njk" %}
+{% endblock %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "https://speak-to-a-home-learning-assistant.education.gov.uk"
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="/feedback">feedback</a> will help us to improve it.'
+  }) }}
 {% endblock %}
 
 {% block footer %}
   {{
     govukFooter({
       meta: {
-        html: 'Built by the <a href="#" class="govuk-footer__link">Government Digital Service</a>'
+        html: 'This trial service is for secondary school pupils and is free of charge. It is open from 9am to 6pm, Monday to Friday'
       }
     })
   }}
