@@ -28,9 +28,7 @@
     "pino": "^5.12.2",
     "serve-favicon": "^2.5.0",
     "staticify": "^3.3.1",
-    "throng": "4.0.x"
-  },
-  "devDependencies": {
+    "throng": "4.0.x",
     "@babel/core": "^7.5.4",
     "@babel/preset-env": "^7.5.4",
     "chai": "^4.2.0",
