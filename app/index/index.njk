@@ -102,10 +102,22 @@
 
       <p class="govuk-body">You can read our <a href="/privacy-and-cookies" target="_blank" class="govuk-link">privacy policy</a></p>
 
-      {{ govukButton({
-        text: "Start chat",
-        isStartButton: true
-      }) }}
     </form>
+
+    <button id="startChat" class="govuk-button">Start chat</button>
   </div>
+
+  <script type="text/javascript" >
+    function InitialiseC4A() {
+      /* Chat Tool */
+      var Tool1 = new C4A.Tools(1, 'startChat');
+      Tool1.AddCustomData('{"Name": "Luke","Product": "Car","CustomerID": "1234","Department": "Sales"}');
+      C4A.Track.Enabled = false;
+      C4A.Run('65f9bd35-59b0-4215-943c-ddccee05ee4f');
+    }
+  </script>
+
+  <noscript><a href="https://www.click4assistance.co.uk/add-live-chat-software-click4assistance-uk" target="_blank" style="font-size:10px;position:fixed;bottom:2px;right:2px;">Click4Assistance UK Live Chat Software</a></noscript>
+
+  <script src="https://v4in1-si.click4assistance.co.uk/SI.js" type="text/javascript" defer="defer"></script>
 {% endblock %}
