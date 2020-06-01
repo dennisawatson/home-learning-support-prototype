@@ -107,13 +107,28 @@
     <button id="startChat" class="govuk-button">Start chat</button>
   </div>
 
-  <script type="text/javascript" >
+  <script type="text/javascript">
     function InitialiseC4A() {
-      /* Chat Tool */
-      var Tool1 = new C4A.Tools(1, 'startChat');
-      Tool1.AddCustomData('{"Name": "Luke","Product": "Car","CustomerID": "1234","Department": "Sales"}');
-      C4A.Track.Enabled = false;
-      C4A.Run('65f9bd35-59b0-4215-943c-ddccee05ee4f');
+
+      button = document.getElementById('startChat');
+
+      button.addEventListener('click', function() {
+        var name     = document.getElementById('given-name').value;
+        var year     = document.getElementById('year_group').value;
+        var subject  = document.getElementById('subject').value;
+        var question = document.getElementById('question').value;
+
+        var customData = JSON.stringify({name: name, year: year, subject: subject, question: question});
+
+        console.log("starting tool with data: ", customData);
+
+        /* Chat Tool */
+        var Tool1 = new C4A.Tools(1);
+        C4A.Track.Enabled = false;
+        C4A.Run('65f9bd35-59b0-4215-943c-ddccee05ee4f');
+        Tool1.AddCustomData(customData);
+      }, false);
+
     }
   </script>
 
