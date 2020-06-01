@@ -1,7 +1,3 @@
-{% from "components/input/macro.njk" import govukInput %}
-{% from "components/fieldset/macro.njk" import govukFieldset %}
-{% from "components/textarea/macro.njk" import govukTextarea %}
-{% from "components/select/macro.njk" import govukSelect %}
 {% from "components/button/macro.njk" import govukButton %}
 {% extends "common/templates/layout.njk" %}
 
@@ -9,11 +5,13 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-    <p class="govuk-body-l">Stuck on your biology or geography homework? Got a question and need help right now? Our team of experts are here to help.</p>
+    <p class="govuk-body-l">Stuck on your biology or geography homework?</p>
 
-    <p class="govuk-body">To use this service you must be at least 13 years old.</p>
+    <p class="govuk-body">Use our live chat service to get help from a subject specialist.</p>
 
-    <p class="govuk-body">
+    <p class="govuk-hint">To use this service you must be at least 13 years old.</p>
+
+    <p class="govuk-hint">
       By using this service you agree to our <a href="/terms-and-conditions" target="_blank" class="govuk-link">terms and conditions</a>.
       You also agree to have read our <a href="/privacy-and-cookies" target="_blank" class="govuk-link">privacy policy</a> and agree to us using
       your personal data as stated within the policy.

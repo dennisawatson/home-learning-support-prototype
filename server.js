@@ -3,7 +3,7 @@ const path = require('path')
 
 // Npm dependencies
 const express = require('express')
-const favicon = require('serve-favicon')
+//const favicon = require('serve-favicon')
 const bodyParser = require('body-parser')
 const logger = require('pino')()
 const loggingMiddleware = require('morgan')
@@ -34,7 +34,7 @@ const APP_VIEWS = [
 
 function initialiseGlobalMiddleware (app) {
   app.set('settings', { getVersionedPath: staticify.getVersionedPath })
-  app.use(favicon(path.join(__dirname, 'node_modules/govuk-frontend/assets/', 'images', 'favicon.ico')))
+  // app.use(favicon(path.join(__dirname, 'node_modules/govuk-frontend/assets/', 'images', 'favicon.ico')))
   app.use(compression())
   app.use(staticify.middleware)
 
