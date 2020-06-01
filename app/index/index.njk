@@ -123,7 +123,7 @@
         console.log("starting tool with data: ", customData);
 
         /* Chat Tool */
-        var Tool1 = new C4A.Tools(1);
+        var Tool1 = new C4A.Tools(1, 'startChat');
         C4A.Track.Enabled = false;
         C4A.Run('65f9bd35-59b0-4215-943c-ddccee05ee4f');
         Tool1.AddCustomData(customData);
